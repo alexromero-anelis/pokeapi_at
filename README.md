@@ -21,7 +21,7 @@ Este proyecto está realizado por Alejandro Romero y Tomás Primo. Nuestro prime
 
 ### Frontend
 
-    ```bash
+```bash
     cd frontend
     npm install
     npm run dev
