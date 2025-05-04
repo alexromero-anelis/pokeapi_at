@@ -14,3 +14,15 @@ Este proyecto está realizado por Alejandro Romero y Tomás Primo. Nuestro prime
         - Python con FastAPI
     - Base de datos:
         - MySQL
+
+## Uso de la aplicación en local
+
+    Para poder depurar y probar cambios en local se debe de hacer lo siguiente.
+
+### Frontend
+
+    ```bash
+    cd frontend
+    npm install
+    npm run dev
+
