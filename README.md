@@ -13,11 +13,11 @@ Este proyecto está realizado por Alejandro Romero y Tomás Primo. Nuestro prime
     - Backend:
         - Python con FastAPI
     - Base de datos:
-        - MySQL
+        - PostgreSQL
 
 ## Uso de la aplicación en local
 
-    Para poder depurar y probar cambios en local se debe de hacer lo siguiente.
+Para poder depurar y probar cambios en local se debe de hacer lo siguiente. Si queremos ejecutar el frontend usaremos los siguientes comandos:
 
 ### Frontend
 
@@ -25,4 +25,14 @@ Este proyecto está realizado por Alejandro Romero y Tomás Primo. Nuestro prime
     cd frontend
     npm install
     npm run dev
+```
 
+Para hacer que el backend escuche las llamadas del frontend en nuestro local, debemos lanzar el servidor Uvicorn siguiendo estos pasos:
+
+### Backend
+
+```bash
+    cd .\backend\
+    pip install -r requirements.txt
+    cd .\api\
+    uvicorn api:app --reload
