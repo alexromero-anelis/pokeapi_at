@@ -1,29 +1,16 @@
-import { useState, useEffect } from 'react'
-import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Navbar from "./components/Navbar"
+import Home from "./pages/Home"
 
-function App() {
-  const [pokemon, setPokemons] = useState([])  // <- CORREGIDO
-
-  useEffect(() => {
-    fetch("http://127.0.0.1:8000/pokemons")
-      .then(response => response.json())
-      .then(data => setPokemons(data))
-      .catch(error => console.error('No se han encontrado los pokemons:', error));
-  }, [])
-
+function App() 
+{
   return (
-    <>
-      <h1>API Pokemon</h1>
-      <ul>
-        {
-          pokemon.map(p => (
-            <li key={p.id}>
-              {p.id} - {p.name} - {p.type}
-            </li>
-          ))
-        }
-      </ul>
-    </>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
