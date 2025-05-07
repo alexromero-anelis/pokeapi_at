@@ -1,9 +1,11 @@
+import Card from "../components/Card"
+
 export default function Home() {
     return (
       <div className="p-6">
-        <h1 className="text-3xl font-bold text-red-600 mb-4">test</h1>
-        <p className="mb-6 text-lg">
-        </p>
+        <div className="mb-6 text-lg">
+            <Card url="https://pokeapi.co/api/v2/pokemon/150" />
+        </div>
       </div>
     )
   }
