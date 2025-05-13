@@ -1,15 +1,24 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function Card({ url = "" }) {
+export default function Card({ url = "" }) 
+{
   const [pokemon, setPokemon] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setPokemon(data));
   }, [url]);
+
+  const verDetalles = () => {
+    if (pokemon) {
+      navigate(`/pokemons/${pokemon.id}`)
+    }
+  }
 
   // Si aún no se han cargado los datos, muestra un mensaje de carga, necesario para evitar que se renderice la tarjeta antes de que los datos estén disponibles
   if (!pokemon) {
@@ -22,7 +31,7 @@ export default function Card({ url = "" }) {
 
   // Si ya se cargaron los datos, se renderiza la tarjeta
   return (
-    <div className="bg-white p-4 rounded shadow max-w-xs hover:shadow-lg transition">
+    <div className="bg-white p-4 rounded shadow max-w-xs hover:shadow-lg transition" onClick={verDetalles}>
       {/* Imagen del pokémon */}
       <img
         src={pokemon.sprites.other["official-artwork"].front_default}
